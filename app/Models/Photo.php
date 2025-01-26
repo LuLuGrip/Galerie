@@ -9,10 +9,9 @@ class Photo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'path'];
-
-    public function album()
-    {
-        return $this->belongsTo(Album::class);
-    }
+    protected $fillable = [
+        'filename', // Název souboru
+        'path',     // Cesta k souboru
+    ];
 }
+
