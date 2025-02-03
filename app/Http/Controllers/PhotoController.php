@@ -45,6 +45,7 @@ class PhotoController extends Controller
     public function show($id)
     {
         $photo = Photo::findOrFail($id); // Načte fotku podle ID
+        
         return view('photos.show', compact('photo'));
     }
 

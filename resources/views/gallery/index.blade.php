@@ -30,7 +30,7 @@
     <div class="row mt-5">
         @forelse($photos as $photo)
             <div class="col-md-4">
-                <img src="{{ asset('storage/photos/'.$photo->path) }}" alt="{{ $photo->title }}" class="img-fluid">
+                <img src="{{ asset('storage/'.$photo->path) }}" alt="{{ $photo->title }}" class="img-fluid">
                 <p>{{ $photo->title }}</p>
             </div>
         @empty

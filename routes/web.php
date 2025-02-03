@@ -9,7 +9,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [GalleryController::class, 'index'])->name('gallery.index');
 
 
-Route::resource('photos', PhotoController::class);
+Route::post('/photos', [PhotoController::class, 'store'])->name('photos.store');
 
 
 Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
