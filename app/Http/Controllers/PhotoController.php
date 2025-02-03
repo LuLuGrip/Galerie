@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Photo;
@@ -19,6 +20,8 @@ class PhotoController extends Controller
     {
         // Validace vstupu
         $request->validate([
+            'title' => 'required|string|max:255', // Přidáno
+            'description' => 'nullable|string', // Přidáno
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Formáty a maximální velikost
         ]);
 
@@ -30,6 +33,8 @@ class PhotoController extends Controller
         $photo = Photo::create([
             'filename' => $file->getClientOriginalName(),
             'path' => $path,
+            'title' => $request->title, // Přidáno
+            'description' => $request->description, // Přidáno
         ]);
 
         // Přesměrování zpět s úspěšnou zprávou

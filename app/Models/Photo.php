@@ -10,8 +10,9 @@ class Photo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'filename', // Název souboru
-        'path',     // Cesta k souboru
+        'filename',
+        'path',
+        'title', // Přidáno
+        'description', // Přidáno
     ];
 }
-
