@@ -14,9 +14,10 @@ class AdminController extends Controller
             session()->forget(['authenticated', 'authenticated_expiration']);
         }
 
-        return view('admin.index');
+        return view('admin.index', [
+            'photos' => \App\Models\Photo::all(),
+        ]);
     }
-
 
     // Ověření hesla
     public function authenticate(Request $request)
@@ -37,5 +38,4 @@ class AdminController extends Controller
 
         return redirect()->route('admin.index')->withErrors(['password' => 'Špatné heslo!']);
     }
-    
 }
